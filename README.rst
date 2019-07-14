@@ -14,13 +14,8 @@ zev
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/zevav/zev/shield.svg
-     :target: https://pyup.io/repos/github/zevav/zev/
-     :alt: Updates
 
-
-
-zev is a collection of helper functions and classes that are generally helpful.
+A collection of helper functions, constants, and classes.
 
 
 * Free software: MIT license
