@@ -4,31 +4,26 @@ from zev.make_url import make_url, Malformed
 
 
 def test_make_url():
-    assert (
-        make_url("https://team.avt.io", "api", "rates", hi=123, bye="321")
-        == "https://team.avt.io/api/rates/?hi=123&bye=321"
-    )
+    assert make_url("https://team.avt.io", "api", "rates", hi=123, bye="321") in [
+        "https://team.avt.io/api/rates/?hi=123&bye=321",
+        "https://team.avt.io/api/rates/?bye=321&hi=123",
+    ]
 
 
 def test_make_wrong_url_works():
-    assert (
-        make_url("team.avt.io", "api", "rates", hi=123, bye="321")
-        == "https://team.avt.io/api/rates/?hi=123&bye=321"
-    )
+    assert make_url("team.avt.io", "api", "rates", hi=123, bye="321") in [
+        "https://team.avt.io/api/rates/?hi=123&bye=321",
+        "https://team.avt.io/api/rates/?bye=321&hi=123",
+    ]
 
 
 def test_no_trailing_slash():
-    assert (
-        make_url(
-            "https://team.avt.io",
-            "api",
-            "rates",
-            hi=123,
-            bye="321",
-            trailing_slash=False,
-        )
-        == "https://team.avt.io/api/rates?hi=123&bye=321"
-    )
+    assert make_url(
+        "https://team.avt.io", "api", "rates", hi=123, bye="321", trailing_slash=False
+    ) in [
+        "https://team.avt.io/api/rates?hi=123&bye=321",
+        "https://team.avt.io/api/rates?bye=321&hi=123",
+    ]
 
 
 def test_make_wrong_url_errors():

@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 pytest-watch = "*"
+flake8 = "*"
 
 [packages]
 bumpversion = "==0.5.3"

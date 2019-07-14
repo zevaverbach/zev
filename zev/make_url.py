@@ -1,14 +1,29 @@
 # -*- coding: future_fstrings -*-
 import sys
-import urllib.parse
+
+if sys.version_info[0] < 3:
+    import urllib
+    import urlparse
+
+    url_encode = urllib.urlencode
+    url_parse = urlparse.urlparse
+else:
+    import urllib.parse
+
+    url_encode = urllib.parse.urlencode
+    url_parse = urllib.parse.urlparse
 
 
 class Malformed(Exception):
     pass
 
 
-def make_url(*parts, trailing_slash=True, **params):
+def make_url(*parts, **params):
     base = "/".join(parts)
+    trailing_slash = True
+    if params.get("trailing_slash") is not None:
+        trailing_slash = params["trailing_slash"]
+        del params["trailing_slash"]
     if trailing_slash:
         base += "/"
     url = None
@@ -16,16 +31,16 @@ def make_url(*parts, trailing_slash=True, **params):
     if not base.startswith("http"):
         base = f"https://{base}"
     if params:
-        url = f"{base}?{urllib.parse.urlencode(params)}"
+        url = f"{base}?{url_encode(params)}"
 
     url = url or base
-    validate(url)
+    _validate(url)
 
     return url
 
 
-def validate(url):
-    result = urllib.parse.urlparse(url)
+def _validate(url):
+    result = url_parse(url)
     if (
         result.netloc.endswith(".")
         or "." not in result.netloc
