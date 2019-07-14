@@ -17,6 +17,7 @@ pytest = "==3.8.2"
 pytest-runner = "==4.2"
 Sphinx = "==1.8.1"
 zev = {path = "."}
+future-fstrings = "*"
 
 [requires]
 python_version = "3.7"
