@@ -6,8 +6,8 @@ zev
 .. image:: https://img.shields.io/pypi/v/zev.svg
         :target: https://pypi.python.org/pypi/zev
 
-.. image:: https://img.shields.io/travis/zevav/zev.svg
-        :target: https://travis-ci.org/zevav/zev
+.. image:: https://img.shields.io/travis/zevaverbach/zev.svg
+        :target: https://travis-ci.org/zevaverbach/zev
 
 .. image:: https://readthedocs.org/projects/zev/badge/?version=latest
         :target: https://zev.readthedocs.io/en/latest/?badge=latest
