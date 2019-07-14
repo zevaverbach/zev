@@ -4,6 +4,6 @@
 
 __author__ = """Zev Averbach"""
 __email__ = 'zev@averba.ch'
-__version__ = '0.1.3'
+__version__ = '0.1.4'
 
 from .make_url import *
