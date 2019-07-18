@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 from pytest import fixture
 
@@ -11,6 +11,7 @@ def empty_filepath():
 
 @fixture
 def empty_file(empty_filepath):
-    open(empty_filepath, 'w').close()
-    # this is instead of yield statement to make this work with Python 2
-    request.addfinalizer(lambda _: os.remove(empty_filepath))
+    empty_file_ = Path(empty_filepath)
+    empty_file_.touch()
+    yield
+    empty_file_.unlink()

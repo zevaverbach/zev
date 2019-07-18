@@ -1,4 +1,4 @@
 
 
-def touch_file(path):
+def touch_file(path: str):
     open(path, 'w').close()

@@ -1,9 +1,5 @@
-import os
+from pathlib import Path
 
 
-def get_filesize(path):
-    """
-      path: str
-      returns: int
-    """
-    return os.stat(path).st_size
+def get_filesize(path: str) -> int:
+    return Path(path).stat().st_size
