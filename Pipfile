@@ -4,8 +4,6 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest-watch = "*"
-flake8 = "*"
 
 [packages]
 bumpversion = "==0.5.3"
@@ -17,8 +15,6 @@ twine = "==1.12.1"
 pytest = "==3.8.2"
 pytest-runner = "==4.2"
 Sphinx = "==1.8.1"
-zev = {path = "."}
-future-fstrings = "*"
 
 [requires]
 python_version = "3.7"

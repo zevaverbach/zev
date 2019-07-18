@@ -1,0 +1,3 @@
+
+def get_filesize(path: str) -> int:
+    ...
